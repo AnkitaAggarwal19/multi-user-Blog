@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {{post.render() | safe}}
+
+    <div class="likes">
+        likes<span class="like-vote">({{post.likes}})</span>
+  	dislikes<span class="like-vote">({{post.dislikes}})</span>
+    </div>
+
+    <!-- comment box -->
+    <div>
+        <h3>Post a comment:</h3>
+  	<form method="post" action="/blog/commentPage/{{post.key().id()}}">
+  	    <div class="error">{{error}}</div>
+  	    <textarea placeholder="Enter your comment here!" name="comment">{{content}}</textarea>
+  	    <br>
+  	    <input type="submit" class="edit-del-like">
+  	</form>
+  	<br>
+  	<!-- user comments -->
+  	<div id="com-container">
+  	    {% for comm in comments %}
+  	        <div class="post">
+  	            <div id="com-head">
+  	                <div id="com-title">
+  		 	    {{comm.author}}
+  		 	</div>
+  			<div id="com-date">
+  			    ({{comm.created.strftime("%b %d, %Y")}})
+  			</div>
+  		    </div>
+  		    <div id="com-content">
+        	        {{comm.comment | safe}}
+  		    </div>
+  		    <div>
+  		        <a href="/blog/editcomment/{{comm.key().id()}}" title="edit comment" class="comm-links">&#x270E;</a>
+  		        <a href="/blog/delcomment/{{comm.key().id()}}" title="delete comment" class="comm-links">&#x2718;</a>
+  		    </div>
+  		</div>
+  	    {% endfor %}
+  	</div>
+    </div>
+
+{% endblock %}

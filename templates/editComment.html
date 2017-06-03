@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="post">
+        <div class="post-heading">
+            <div class="post-title">
+                {{post.subject}}
+            </div>
+            <div class="post-date">
+                {{post.created.strftime("%b %d, %Y")}}
+            </div>
+        </div>
+
+        <div class="post-content">
+            {{post._render_text | safe}}
+        </div>
+
+        <form method="post" action="/blog/editcomment/{{comment.key().id()}}">
+            <div class="error">{{error}}</div>
+            <textarea placeholder="Post your comment here!" name="comment">{{content}}</textarea>
+            <br>
+            <input type="submit" class="edit-del-like edit-comm">
+        </form>
+    </div>  
+{% endblock %}
