@@ -18,16 +18,19 @@ Install Jinja and create helper functions for using Jinja.
 The two main technologies used in this project are Google App Engine and Jinja. 
 
 Basic Blog:
-- Front Page lists the blog posts.
-- login link
-- signup link
+- Front Page shows a message "Hello Udacity"
+- "unique-name.appspot.com/blog" is the main page of the application:
+      - lists the blog posts.
+      - login link
+      - signup link
 
-For writing a newpost, you can go to the url: unique-name.appspot.com/blog/newpost
-For logging in, you can go to the url: unique-name.appspot.com/login
-For signing up, you can ho to the url: unique-name.appspot.com/signup 
+For reading the blogs, you can go to the url: main-campaign-169610.appspot.com/blog
+For writing a newpost, you can go to: main-campaign-169610.appspot.com/blog/newpost
+For logging in, you can go to: main-campaign-169610.appspot.com/login
+For signing up, you can ho to: main-campaign-169610.appspot.com/signup 
 Buttons are provided for like, dislike, comment, edit and delete.
 
-Check it on this url:
+Check it on this url: main-campaign-169610.appspot.com
 
 
 
